@@ -1,23 +1,19 @@
 <?php
-echo "Today is " . date("Y/m/d") . "<br>";
-echo "Today is " . date("Y.m.d") . "<br>";
-echo "Today is " . date("Y-m-d") . "<br>";
-echo "Today is " . date("l");
-?>
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
 
-<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
 
-$cars = array
-  (
-  array("Volvo",22,18),
-  array("BMW",15,13),
-  array("Saab",5,2),
-  array("Land Rover",17,15)
-  );
-  
-echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
-echo $cars[1][0].": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
-echo $cars[2][0].": In stock: ".$cars[2][1].", sold: ".$cars[2][2].".<br>";
-echo $cars[3][0].": In stock: ".$cars[3][1].", sold: ".$cars[3][2].".<br>";
-
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>
