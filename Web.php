@@ -1,8 +1,3 @@
-<!DOCTYPE HTML>  
-<html>
-<head>
-</head>
-<body>  
 
 <?php
 // define variables and set to empty values
@@ -55,5 +50,4 @@ echo "<br>";
 echo $gender;
 ?>
 
-</body>
-</html>
+
